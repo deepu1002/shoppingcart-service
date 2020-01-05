@@ -20,8 +20,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("cart")
+@RequestMapping("api/cart")
 public class CartController {
 
     @Autowired
