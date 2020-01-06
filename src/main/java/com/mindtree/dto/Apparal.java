@@ -18,4 +18,14 @@ public class Apparal extends Product {
     private String brand;
     private String design;
 
+    public Apparal(String category, String name, float price, String type, String brand, String design) {
+        this.setCategory(category);
+        this.setName(name);
+        this.setPrice(price);
+        this.setType(type);
+        this.setBrand(brand);
+        this.setDesign(design);
+
+    }
+
 }

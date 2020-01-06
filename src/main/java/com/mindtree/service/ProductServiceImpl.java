@@ -39,5 +39,11 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.save(product);
     }
 
+    @Override
+    public List<Product> getProductByName(String category) {
+        return productRepository.findByName(category);
+
+    }
+
 
 }
