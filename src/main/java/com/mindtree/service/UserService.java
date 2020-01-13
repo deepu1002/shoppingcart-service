@@ -10,5 +10,5 @@ public interface UserService {
     List<User> getAllUsers();
     User getUserById(int id);
     void addUser(User user);
-    User getUserByNameAndEmail(String name, String email);
+    Boolean validateUser(String name, String email);
 }

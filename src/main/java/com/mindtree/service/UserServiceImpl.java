@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @Transactional
@@ -21,8 +22,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByNameAndEmail(String name, String email) {
-        return userRepository.findByNameAndEmail(name, email);
+    public Boolean validateUser(String name, String email) {
+        User user =userRepository.findByNameAndEmail(name, email);
+        if(Objects.nonNull(user)) {
+            return true;
+        }
+        return false;
     }
 
     @Override

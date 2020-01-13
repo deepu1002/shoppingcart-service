@@ -14,23 +14,18 @@ public class UserController {
     @Autowired
     public UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping("/api/users")
     public List<User> getUsers() {
         return userService.getAllUsers();
     }
 
-    @PostMapping("/users")
+    @PostMapping("/api/users")
     public void addUser(@RequestBody User user) {
         userService.addUser(user);
     }
 
-//    @GetMapping("/user/id/{id}")
-//    public User getUserById(int id) {
-//        return userService.getUserById(id);
-//    }
-
-    @GetMapping("/user/{name}/{email}")
-    public User getUserByNameAndEmail(String name, String email) {
-        return userService.getUserByNameAndEmail(name, email);
+    @PostMapping("/api/user/validate")
+    public Boolean validateUser(@RequestBody User user) {
+        return userService.validateUser(user.getName(), user.getEmail());
     }
 }
