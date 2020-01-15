@@ -1,11 +1,13 @@
 package com.mindtree.service;
 
-import com.mindtree.dto.Cart;
+import com.mindtree.dto.CartProduct;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface CartService {
-    Iterable<Cart> getAllCartItems();
-    Cart create(Cart cart);
-    void update(Cart cart);
+    Iterable<CartProduct> getAllCartItems();
+    Iterable<CartProduct> findByUserName(String userName);
+    CartProduct addCartProduct(CartProduct cartProduct);
+    CartProduct updateCartProduct(CartProduct cartProduct);
+    void deleteCartProduct(CartProduct cartProduct);
 }

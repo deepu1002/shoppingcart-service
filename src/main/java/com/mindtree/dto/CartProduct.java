@@ -1,36 +1,23 @@
 package com.mindtree.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 @Data
 @Entity
 public class CartProduct {
 
-    @EmbeddedId
-    @JsonIgnore
-    private CartProductPK pk;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
+    @Column(unique = true, nullable = false)
+    private Integer productId;
+    private String name;
+    private Float price;
     private Integer quantity;
 
-    public CartProduct(Cart cart, Product product, Integer quantity) {
-        pk = new CartProductPK();
-        pk.setCart(cart);
-        pk.setProduct(product);
-        this.quantity = quantity;
-    }
-
-    @Transient
-    public Product getProduct() {
-        return this.pk.getProduct();
-    }
-
-    @Transient
-    public float getTotalPrice() {
-        return getProduct().getPrice() * getQuantity();
-    }
+    @Column(nullable = false)
+    private String userName;
 }
