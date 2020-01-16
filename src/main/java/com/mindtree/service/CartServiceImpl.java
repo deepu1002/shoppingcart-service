@@ -35,14 +35,14 @@ public class CartServiceImpl implements CartService {
         if(cartProduct.getQuantity() > 0) {
             return this.cartRepository.save(cartProduct);
         } else {
-            deleteCartProduct(cartProduct);
+            deleteCartProduct(cartProduct.getId());
             return null;
         }
     }
 
     @Override
-    public void deleteCartProduct(CartProduct cartProduct) {
-        this.cartRepository.deleteById(cartProduct.getId());
+    public void deleteCartProduct(int cartProductId) {
+        this.cartRepository.deleteById(cartProductId);
     }
 
     private CartProduct validateProductsExistence(CartProduct cartProduct) {

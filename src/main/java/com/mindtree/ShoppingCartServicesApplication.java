@@ -23,7 +23,7 @@ public class ShoppingCartServicesApplication {
 	@Bean
 	CommandLineRunner init(UserRepository userRepository) {
 		return args -> {
-			Stream.of("John", "Julie", "Jennifer", "Helen", "Rachel").forEach(name -> {
+			Stream.of("john", "julie", "jennifer", "helen", "rachel", "test").forEach(name -> {
 				User user = new User(name, name.toLowerCase() + "@mindtree.com");
 				userRepository.save(user);
 			});

@@ -36,9 +36,9 @@ public class CartController {
         return cartService.updateCartProduct(cartProduct);
     }
 
-    @DeleteMapping
-    public void deleteCartProduct(@RequestBody CartProduct cartProduct) {
-        cartService.deleteCartProduct(cartProduct);
+    @DeleteMapping(value = { "/{id}"})
+    public void deleteCartProduct(@PathVariable("id") int cartProductId) {
+        cartService.deleteCartProduct(cartProductId);
     }
 }
 

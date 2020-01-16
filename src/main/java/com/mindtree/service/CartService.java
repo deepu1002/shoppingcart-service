@@ -9,5 +9,5 @@ public interface CartService {
     Iterable<CartProduct> findByUserName(String userName);
     CartProduct addCartProduct(CartProduct cartProduct);
     CartProduct updateCartProduct(CartProduct cartProduct);
-    void deleteCartProduct(CartProduct cartProduct);
+    void deleteCartProduct(int cartProductId);
 }
