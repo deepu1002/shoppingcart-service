@@ -12,4 +12,9 @@ public class ErrorResponse {
     public void addError(ErrorItem error) {
         this.errors.add(error);
     }
+
+    @Override
+    public String toString() {
+        return "ErrorResponse{" + "errors=" + errors + '}';
+    }
 }
