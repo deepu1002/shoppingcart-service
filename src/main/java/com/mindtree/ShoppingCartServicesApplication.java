@@ -6,6 +6,7 @@ import com.mindtree.dto.Product;
 import com.mindtree.dto.User;
 import com.mindtree.repository.UserRepository;
 import com.mindtree.service.ProductService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.stream.Stream;
 
+@Slf4j
 @SpringBootApplication
 public class ShoppingCartServicesApplication {
 
@@ -22,6 +24,7 @@ public class ShoppingCartServicesApplication {
 
 	@Bean
 	CommandLineRunner init(UserRepository userRepository) {
+		log.info("Creating test users ........");
 		return args -> {
 			Stream.of("john", "julie", "jennifer", "helen", "rachel", "test").forEach(name -> {
 				User user = new User(name, name.toLowerCase() + "@mindtree.com");
@@ -33,6 +36,7 @@ public class ShoppingCartServicesApplication {
 
 	@Bean
 	CommandLineRunner runner(ProductService productService) {
+		log.info("Creating test products........");
 		return args -> {
 			productService.save(new Book("Book","Harry Potter Series", 1500.00f, "Fantasy", "J. K. Rowling", "General"));
 			productService.save(new Book("Book","Benjamin Franklin", 2000.00f, "Biography", "Benjamin Franklin", "General"));
