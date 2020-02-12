@@ -2,7 +2,6 @@ package com.mindtree;
 
 import com.mindtree.dto.Apparal;
 import com.mindtree.dto.Book;
-import com.mindtree.dto.Product;
 import com.mindtree.dto.User;
 import com.mindtree.repository.UserRepository;
 import com.mindtree.service.ProductService;
